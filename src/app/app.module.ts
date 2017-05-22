@@ -1,13 +1,24 @@
-import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { AppComponent }  from './app.component';
+import { AppComponent } from './app.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
-  imports:      [ BrowserModule ],
-  declarations: [ AppComponent, CategoriesComponent, ActivitiesComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    CategoriesComponent,
+    ActivitiesComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
