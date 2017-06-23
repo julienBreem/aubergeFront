@@ -1,0 +1,24 @@
+h1{
+    text-align:center;
+    margin:50px;
+}
+.text{
+    height:160px;
+    text-align:center;
+    padding: 25px;
+}
+.icon{
+    text-align:center;
+    height: 100px !important;
+    font-size: 50px;
+    padding: 25px;
+    background-color: #FFFFFF;
+}
+
+.aj-image-with-text-block{
+    margin-bottom:75px;
+}
+
+.selected .row {
+    border-top: 7px solid #b70050;
+}
