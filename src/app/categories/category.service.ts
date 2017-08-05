@@ -10,4 +10,35 @@ export class CategoryService {
   getCategories(): Category[] {
     return CATEGORIES;
   }
+
+  getCategory(id): Category{
+    for(let i=0; i<CATEGORIES.length;i++){
+      if(CATEGORIES[i].id == id){
+        return CATEGORIES[i];
+      }
+    }
+}
+
+  save(categorie: Category){
+    if(categorie.id){
+      this.update(categorie);
+    } else {
+      this.add(categorie);
+    }
+  }
+
+  update(categorie: Category){
+    for(let i=0; i<CATEGORIES.length;i++){
+      if(CATEGORIES[i].id == categorie.id){
+        CATEGORIES[i] = categorie;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  add(categorie: Category){
+    categorie.id = CATEGORIES.length+1;
+    CATEGORIES.push(categorie);
+  }
 }

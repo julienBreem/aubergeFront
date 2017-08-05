@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Category} from "../category.model";
 
 @Component({
   selector: 'app-category-detail',
   templateUrl: './category-detail.component.html',
-  styleUrls: ['./category-detail.component.css']
+  styleUrls: ['./category-detail.component.css'],
 })
-export class CategoryDetailComponent implements OnInit {
+export class CategoryDetailComponent {
 
-  constructor() { }
 
-  ngOnInit() {
+  @Input()
+  values: Category;
+
+  @Output()
+  submitCat: EventEmitter<Category> = new EventEmitter<Category>();
+
+
+
+  constructor() {
+  }
+
+
+
+  doSubmit(event){
+    this.submitCat.emit(this.values);
+    return false;
   }
 
 }

@@ -1,36 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
 import {Category} from "../category.model";
-import {CategoryService} from "../category.service";
-import {AuthService} from "../../core/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  styleUrls: ['./category-list.component.css'],
 })
-export class CategoryListComponent implements OnInit {
+export class CategoryListComponent {
+  @Input()
+  admin: boolean = false;
 
+  @Input()
   categories: Category[];
+
+  @Output()
+  select: EventEmitter<Category> = new EventEmitter<Category>();
+
+
   selectedCategory: Category;
 
   constructor(
-      private categoryService: CategoryService,
-      private authService: AuthService,
+      private router: Router
   ) { }
 
-  ngOnInit() {
-    this.getCategories();
-  }
-  getCategories(): void {
-    this.categories = this.categoryService.getCategories();
+  goToCategory(id){
+    this.router.navigate(['/categorie', id]);
   }
 
-  admin():boolean{
-    return this.authService.getAdmin();
+  new(){
+    this.selectCategory({
+      id:null,
+      name:"",
+      description:"",
+      image:""
+    })
   }
+
   selectCategory(category: Category){
-    if(this.admin()){
-      this.selectedCategory = category;
+    if(this.admin){
+      (this.selectedCategory == category)?this.selectedCategory = null : this.selectedCategory = category;
+      this.select.emit(this.selectedCategory);
     }
 
   }

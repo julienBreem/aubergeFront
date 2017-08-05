@@ -3,18 +3,35 @@ import { CommonModule } from '@angular/common';
 import {CategoryListComponent} from "./category-list/category-list.component";
 import {CategoryDetailComponent} from "./category-detail/category-detail.component";
 import {CategoryService} from "./category.service";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {CategoriesComponent} from "./categories.component";
+import {CarouselComponent} from "../carousel/carousel.component";
+import { CategoryComponent } from './category/category.component';
+import {RouterModule, Routes} from "@angular/router";
+import {ActivitiesModule} from "../activities/activities.module";
+
+const appRoutes: Routes = [
+  { path: '', component: CategoriesComponent},
+  { path: 'categorie/:id', component: CategoryComponent}
+];
 
 @NgModule({
   imports: [
-    CommonModule
+    RouterModule.forRoot(appRoutes),
+    CommonModule,
+    BrowserModule,
+    FormsModule,
+    ActivitiesModule
   ],
   declarations: [
     CategoryListComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    CategoriesComponent,
+    CarouselComponent,
+    CategoryComponent
   ],
-  exports: [
-    CategoryListComponent
-  ],
+  exports: [ ],
   providers: [CategoryService]
 })
 export class CategoriesModule { }

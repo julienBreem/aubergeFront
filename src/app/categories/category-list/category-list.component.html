@@ -1,15 +1,22 @@
 <div class="container">
-  <h1>Liste des catégories d'activité</h1>
+  <h1></h1>
   <div class="col-md-4 aj-image-with-text-block" [ngClass]="{'selected': category==selectedCategory}" *ngFor="let category of categories">
     <div class="row aj-image-with-text-block-content mt0" (click)="selectCategory(category)">
       <section class="aj-image-with-text-block-image mt0 oe_img_bg col-md-8 mb0 icon">
-        <span class="{{category.image}}" aria-hidden="true"></span>
+        <img src="{{category.image}}">
       </section>
       <div class="col-md-offset-1 col-md-10 mt32 mb48 text">
         <h2>{{category.name}}</h2>
         <p>{{category.description}}</p>
       </div>
     </div>
-    <a class="btn aj-image-with-text-block-button" href="" type="button">découvrir</a>
+    <a class="btn aj-image-with-text-block-button" (click)="goToCategory(category.id)" type="button">découvrir</a>
   </div>
+
+  <div *ngIf="admin" class="col-md-4 outer-new">
+    <button (click)="new()" class="btn btn-default btn-lg new">
+      <span class="glyphicon glyphicon-plus"></span>
+    </button>
+  </div>
+
 </div>
