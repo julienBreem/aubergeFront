@@ -6,29 +6,24 @@
     </div>
     <div class="form-group">
       <!--label for="nom">Nom</label-->
-      <input size="50" id="nom" name="name" type="text" placeholder="Titre" >
-    </div><br />
+      <input size="50" id="title" name="title" type="text" placeholder="Titre" [(ngModel)]="values.title">
+    </div>
     <div class="form-group">
-      <textarea rows="4" cols="50"  placeholder="texte"></textarea>
+      <!--label for="nom">Nom</label-->
+      <input size="50" id="subtitle" name="subtitle" type="text" placeholder="Titre" [(ngModel)]="values.subtitle">
+    </div>
+    <div class="form-group">
+      <textarea id="Description" rows="2" cols="50"  placeholder="texte" [(ngModel)]="values.description"></textarea>
       <!--label for="description">Description</label-->
-      <input size="50" id="description" name="description" type="text" placeholder="text 2 ?" >
-    </div><br />
-    <div class="form-group">
-      <!--label for="image">Image</label-->
-      <input id="image" name="image" type="text" placeholder="Image">
     </div>
     <div class="form-group">
       <!--label for="image">Image</label-->
-      <input id="image" name="image" type="text" placeholder="Site">
-    </div><br />
-    <div class="form-group">
-      <!--label for="image">Image</label-->
-      <input id="image" name="image" type="text" placeholder="Fichier">
+      <input id="image" name="image" type="text" placeholder="Image" [(ngModel)]="values.image">
     </div>
     <div class="form-group">
       <!--label for="image">Image</label-->
-      <input id="image" name="image" type="text" placeholder="Code Qr">
-    </div><br />
+      <input id="infos" name="infos" type="text" placeholder="Infos" [(ngModel)]="values.link">
+    </div>
     <button type="button" class="btn btn-success btn-xs">ENVOYER <span class="glyphicon glyphicon-plus"></span></button>
   </form>
 </div>

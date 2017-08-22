@@ -1,5 +1,5 @@
 body{
-  font-family: Verdana;
+  font-family: Verdana !important;
 }
 html body .aj-image-with-text-block {
   position: relative;
@@ -50,9 +50,6 @@ html body .aj-image-with-text-block .aj-image-with-text-block-button {
 html body .aj-image-with-text-block .aj-image-with-text-block-button:hover {
   color: #fff;
   background: #b70050;
-}
-.aj-image-with-text-block-content{
-  border: 1px solid #fff;
 }
 
 .no-padding{

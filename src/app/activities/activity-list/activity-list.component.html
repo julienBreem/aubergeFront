@@ -3,10 +3,10 @@
     <img alt="200x200" class="featurette-image img-responsive center-block float-left" data-holder-rendered="true" data-src="holder.js/200x200/auto" src="{{activity.image}}">
   </p>
   <h1>
-    <div *ngIf="admin">
-      <button type="button" class="btn btn-info btn-sm btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
-      <button type="button" class="btn btn-danger btn-sm btn-edit"><span class="glyphicon glyphicon-remove"></span></button>
-    </div>
+    <span *ngIf="admin">
+      <button (click)="selectActivity(activity)" type="button" class="btn btn-info btn-sm btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
+      <button (click)="deleteActivity(activity)" type="button" class="btn btn-danger btn-sm btn-edit"><span class="glyphicon glyphicon-remove"></span></button>
+    </span>
     {{activity.title}}
   </h1>
   <p *ngIf="activity.subtitle">
@@ -39,4 +39,6 @@
     </div>
   </div>
 </div>
-<app-activity-form></app-activity-form>
+<div class="displayForm" [ngClass]="{'visible' : selectedActivity}">
+  <app-activity-form *ngIf="admin() && selectedActivity" (submitCat)="submitForm($event)" (close)="selectActivity(selectedActivity)" [values]="selectedActivity"></app-activity-form>
+</div>

@@ -5,10 +5,12 @@ import {ActivityListComponent} from "./activity-list/activity-list.component";
 import {ActivityComponent} from "./activity/activity.component";
 import {ActivityService} from "./activity.service";
 import { ActivityFormComponent } from './activity-form/activity-form.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
       ActivitiesComponent,

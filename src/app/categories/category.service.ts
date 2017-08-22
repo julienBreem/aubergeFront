@@ -17,7 +17,7 @@ export class CategoryService {
         return CATEGORIES[i];
       }
     }
-}
+  }
 
   save(categorie: Category){
     if(categorie.id){

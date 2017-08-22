@@ -7,8 +7,6 @@ import {Category} from "../category.model";
   styleUrls: ['./category-form.component.css'],
 })
 export class CategoryFormComponent {
-
-
   @Input()
   values: Category;
 
