@@ -10,42 +10,9 @@ import {CategoryService} from "./category.service";
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent  {
 
-  category: Category;
-  categories: Category[];
-  visible: boolean = false;
   constructor(
-      private authService: AuthService,
-      private catservice: CategoryService
   ) { }
-
-  ngOnInit() {
-    this.getCategories();
-  }
-
-  public admin():boolean{
-    return this.authService.getAdmin();
-  }
-
-  getCategories(): void {
-    this.categories = this.catservice.getCategories();
-  }
-
-  submitForm(category: Category) {
-    this.catservice.save(category);
-    this.getCategories();
-    this.toggle();
-  }
-
-  toggle(arg = undefined){
-    if(isUndefined(arg))this.visible = !this.visible;
-    else this.visible = arg;
-  }
-
-  selectCategory(category) {
-    this.category = Object.assign({}, category);
-    this.toggle(category);
-  }
 
 }

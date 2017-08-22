@@ -27,6 +27,16 @@ export class CategoryService {
     }
   }
 
+  delete(categorie: Category){
+    for(let i=0; i<CATEGORIES.length;i++){
+      if(CATEGORIES[i].id == categorie.id){
+        CATEGORIES.splice(i,1);
+        return true;
+      }
+    }
+    return false;
+  }
+
   update(categorie: Category){
     for(let i=0; i<CATEGORIES.length;i++){
       if(CATEGORIES[i].id == categorie.id){

@@ -1,16 +1,16 @@
-<div class="aj-image-with-text-block">
-  <div class="aj-image-with-text-block-content">
-    <section class="col-md-12 image-container">
-      <img src="{{category.image}}">
-    </section>
-    <div class="col-md-10 text">
-      <h2>{{category.name}}</h2>
-      <p>{{category.description}}</p>
-    </div>
+<div class="categoryHeader">
+  <div class="image-container">
+    <img src="{{category.image}}">
+  </div>
+  <div class="text-title">
+    <h2>{{category.name}}</h2>
+    <p>{{category.description}}</p>
   </div>
 </div>
 
-<div class="container">
-  <app-activities></app-activities>
+<div class="container text-details activityList">
+
+    <app-activities></app-activities>
+
 </div>
 

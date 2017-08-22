@@ -1,8 +1,3 @@
 <carousel></carousel>
 
-<app-category-list [categories]="categories" [admin]="admin()" (select)="selectCategory($event)"></app-category-list>
-
-<div class="displayForm" [ngClass]="{'visible' : visible}">
-  <app-category-detail *ngIf="admin() && category" (submitCat)="submitForm($event)" [values]="category"></app-category-detail>
-</div>
-
+<app-category-list></app-category-list>

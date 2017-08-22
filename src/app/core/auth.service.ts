@@ -6,6 +6,6 @@ export class AuthService {
   constructor() { }
 
   getAdmin(): boolean{
-    return false;
+    return true;
   }
 }

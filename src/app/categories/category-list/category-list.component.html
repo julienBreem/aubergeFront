@@ -1,7 +1,13 @@
 <div class="container">
   <h1></h1>
   <div class="col-md-4 aj-image-with-text-block" [ngClass]="{'selected': category==selectedCategory}" *ngFor="let category of categories">
-    <div class="row aj-image-with-text-block-content mt0" (click)="selectCategory(category)">
+    <div class="row aj-image-with-text-block-content mt0">
+      <div *ngIf="admin()" class="Button-edit">
+
+        <button (click)="selectCategory(category)" type="button" class="btn btn-info btn-sm btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
+        <button (click)="deleteCategory(category)" type="button" class="btn btn-danger btn-sm btn-edit"><span class="glyphicon glyphicon-remove"></span></button>
+
+      </div>
       <section class="aj-image-with-text-block-image mt0 oe_img_bg col-md-8 mb0 icon">
         <img src="{{category.image}}">
       </section>
@@ -13,10 +19,17 @@
     <a class="btn aj-image-with-text-block-button" (click)="goToCategory(category.id)" type="button">découvrir</a>
   </div>
 
-  <div *ngIf="admin" class="col-md-4 outer-new">
-    <button (click)="new()" class="btn btn-default btn-lg new">
+
+  <div *ngIf="admin()" class="col-md-4 outer-new">
+    
+    <button (click)="new()" class="btn btn-success btn-lg btn-new">NOUVEAU 
       <span class="glyphicon glyphicon-plus"></span>
     </button>
   </div>
 
 </div>
+
+<div class="displayForm" [ngClass]="{'visible' : selectedCategory}">
+  <app-category-form *ngIf="admin() && selectedCategory" (submitCat)="submitForm($event)" (close)="selectCategory(selectedCategory)" [values]="selectedCategory"></app-category-form>
+</div>
+

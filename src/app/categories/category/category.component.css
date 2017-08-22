@@ -3,18 +3,11 @@
     height:450px;
     text-align: center;
     padding: 0px;
-    background-color: #FFFFFF;
+
 }
+
 .image-container img{
     width:100%;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0px;
-    max-width: 100%;
 }
 .text{
     padding: 20px 0px;
@@ -29,4 +22,8 @@
 
 .cat-container{
     height:600px;
+}
+
+.categoryHeader{
+    border-top: 4px solid #ea8b2b;
 }

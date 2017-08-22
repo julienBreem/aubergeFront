@@ -44,3 +44,20 @@ h1{
     vertical-align: middle;
     text-align:center;
 }
+
+.container{
+    padding-top: 70px;
+}
+.displayForm{
+    border-top:1px solid grey;
+    width:100%;
+    cursor: pointer;
+    position:fixed;
+    bottom:0;
+    background-color:white;
+    height:0px;
+}
+.visible{
+    padding:20px;
+    height:inherit;
+}

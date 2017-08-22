@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CategoryListComponent} from "./category-list/category-list.component";
-import {CategoryDetailComponent} from "./category-detail/category-detail.component";
+import {CategoryFormComponent} from "./category-form/category-form.component";
 import {CategoryService} from "./category.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   ],
   declarations: [
     CategoryListComponent,
-    CategoryDetailComponent,
+    CategoryFormComponent,
     CategoriesComponent,
     CarouselComponent,
     CategoryComponent
