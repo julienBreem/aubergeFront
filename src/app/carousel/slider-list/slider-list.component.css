@@ -1,0 +1,26 @@
+.carousel-indicators {
+    top: 20px;
+}
+.item{
+    text-align:left;
+    height:400px;
+    max-height:400px;
+}
+.carousel-text {
+    height:0;
+    max-height:0;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    color:#FFF;
+}
+.carousel-text > p{
+    font-size: 25px;
+}
+.carousel-text > h1{
+    font-size: 50px;
+}
+.carousel-inner{
+    overflow: visible !important;
+
+}

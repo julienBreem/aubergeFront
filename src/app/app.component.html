@@ -7,9 +7,12 @@
           <img alt="Logo" src="../assets/images/logo.jpg">
         </a>
       </div>
-	  
-	  <div class="navbar-connexion">
-		<button type="button" class="btn btn-primary btn-xs raised">connexion</button>
+
+      <div class="navbar-connexion">
+        <!-- Button HTML (to Trigger Modal) -->
+        <button *ngIf="!admin()" type="button" (click)="connexion.open()"  class="btn btn-primary btn-xs raised">connexion</button>
+        <button *ngIf="admin()" type="button" (click)="disconnect()"  class="btn btn-primary btn-xs raised">deconnexion</button>
+        <!-- Modal HTML -->
       </div>
 	  
     </div>
@@ -25,4 +28,18 @@
 
 <section id="footer">
     <div class="footer-default"></div>
+
+    <modal #connexion>
+      <modal-header [show-close]="true">
+        <h4 class="modal-title">connexion administrateur</h4>
+      </modal-header>
+      <modal-body>
+        <form class="form form-inline footer-details" (ngSubmit)="login();connexion.close();">
+          <input  type="text" name="user" placeholder="login" [(ngModel)]="user">
+          <input  type="password" name="password" placeholder="password" [(ngModel)]="password">
+          <button type="submit">valider</button>
+        </form>
+      </modal-body>
+      <modal-footer [show-default-buttons]="false"></modal-footer>
+    </modal>
 </section>

@@ -31,6 +31,7 @@ export class ActivityListComponent implements OnInit {
   }
 
   public admin():boolean{
+    console.log(this.authService.getAdmin());
     return this.authService.getAdmin();
   }
 
@@ -42,18 +43,24 @@ export class ActivityListComponent implements OnInit {
 
   }
   submitForm(activity: Activity) {
+    console.log(activity);
     this.activityService.save(activity);
     this.getActivities();
     this.selectActivity(activity);
   }
 
   deleteActivity(activity: Activity){
-    if(this.admin() && confirm('Êtes vous sûr de vouloir supprimer cette catégories? ( les activités seront aussi supprimées )') ){
+    if(this.admin() && confirm('Êtes vous sûr de vouloir supprimer cette activité?') ){
       this.selectActivity(null);
       this.activityService.delete(activity);
       this.getActivities();
     }
 
   }
+
+  new(){
+    this.selectActivity(new Activity())
+  }
+
 
 }

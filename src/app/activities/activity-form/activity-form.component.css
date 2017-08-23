@@ -1,0 +1,9 @@
+.valider{
+    text-align:center;
+}
+.close{
+    text-align:right;
+}
+.close button span{
+    color: #FFF !important;
+}

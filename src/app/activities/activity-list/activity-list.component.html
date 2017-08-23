@@ -1,9 +1,9 @@
 <div class="container" [ngClass]="{'selected': activity==selectedActivity}" *ngFor="let activity of activities">
   <p class="col-sm-4 no-padding">
-    <img alt="200x200" class="featurette-image img-responsive center-block float-left" data-holder-rendered="true" data-src="holder.js/200x200/auto" src="{{activity.image}}">
+    <img class="featurette-image img-responsive center-block float-left" src="{{activity.image}}">
   </p>
   <h1>
-    <span *ngIf="admin">
+    <span *ngIf="admin()">
       <button (click)="selectActivity(activity)" type="button" class="btn btn-info btn-sm btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
       <button (click)="deleteActivity(activity)" type="button" class="btn btn-danger btn-sm btn-edit"><span class="glyphicon glyphicon-remove"></span></button>
     </span>
@@ -39,6 +39,15 @@
     </div>
   </div>
 </div>
+
+
+<div *ngIf="admin()" class="outer-new">
+  <button (click)="new()" class="btn btn-success btn-lg btn-new">NOUVEAU
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+
+
 <div class="displayForm" [ngClass]="{'visible' : selectedActivity}">
-  <app-activity-form *ngIf="admin() && selectedActivity" (submitCat)="submitForm($event)" (close)="selectActivity(selectedActivity)" [values]="selectedActivity"></app-activity-form>
+  <app-activity-form *ngIf="admin() && selectedActivity" (submitAct)="submitForm($event)" (close)="selectActivity(selectedActivity)" [values]="selectedActivity"></app-activity-form>
 </div>

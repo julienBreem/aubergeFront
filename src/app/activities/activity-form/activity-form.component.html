@@ -1,29 +1,27 @@
-<div class="container">
-  <form class="form-inline footer-details catdetails">
-    <input name="id" type="hidden">
-    <div class="form-group float-right">
-      <button type="button" class="btn btn-close"><span class="glyphicon glyphicon-remove"></span></button>
-    </div>
-    <div class="form-group">
-      <!--label for="nom">Nom</label-->
-      <input size="50" id="title" name="title" type="text" placeholder="Titre" [(ngModel)]="values.title">
-    </div>
-    <div class="form-group">
-      <!--label for="nom">Nom</label-->
-      <input size="50" id="subtitle" name="subtitle" type="text" placeholder="Titre" [(ngModel)]="values.subtitle">
-    </div>
-    <div class="form-group">
-      <textarea id="Description" rows="2" cols="50"  placeholder="texte" [(ngModel)]="values.description"></textarea>
-      <!--label for="description">Description</label-->
-    </div>
-    <div class="form-group">
-      <!--label for="image">Image</label-->
-      <input id="image" name="image" type="text" placeholder="Image" [(ngModel)]="values.image">
-    </div>
-    <div class="form-group">
-      <!--label for="image">Image</label-->
-      <input id="infos" name="infos" type="text" placeholder="Infos" [(ngModel)]="values.link">
-    </div>
-    <button type="button" class="btn btn-success btn-xs">ENVOYER <span class="glyphicon glyphicon-plus"></span></button>
-  </form>
-</div>
+<form class="form-inline footer-details catdetails" (ngSubmit)="doSubmit($event)">
+  <input name="id" type="hidden"  [(ngModel)]="values.id">
+  <div class="col-sm-12 close">
+    <button (click)="closeForm()" type="button" class="btn btn-close"><span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="title">Titre: </label>
+    <input size="50" id="title" name="title" type="text" placeholder="Titre" [(ngModel)]="values.title">
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="subtitle">Sous-Titre</label>
+    <input size="50" id="subtitle" name="subtitle" type="text" placeholder="Sous-Titre" [(ngModel)]="values.subtitle">
+  </div>
+  <div class="form-group  col-sm-12">
+    <textarea id="Description" name="description" rows="2" cols="50"  placeholder="Description" [(ngModel)]="values.description"></textarea>
+    <!--label for="description">Description</label-->
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="image">Image: </label>
+    <input id="image" name="image" type="text" placeholder="Image" [(ngModel)]="values.image">
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="infos">Infos</label>
+    <input id="infos" name="link" type="text" placeholder="Infos" [(ngModel)]="values.link">
+  </div>
+  <button type="submit" class="btn btn-success btn-xs">ENVOYER <span class="glyphicon glyphicon-plus"></span></button>
+</form>

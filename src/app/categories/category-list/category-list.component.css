@@ -47,6 +47,7 @@ h1{
 
 .container{
     padding-top: 70px;
+    margin-top:-150px;
 }
 .displayForm{
     border-top:1px solid grey;

@@ -13,7 +13,7 @@ export class ActivityFormComponent  {
   values: Activity;
 
   @Output()
-  submitCat: EventEmitter<Activity> = new EventEmitter<Activity>();
+  submitAct: EventEmitter<Activity> = new EventEmitter<Activity>();
 
   @Output()
   close: EventEmitter<any> = new EventEmitter();
@@ -26,7 +26,8 @@ export class ActivityFormComponent  {
   }
 
   doSubmit(event){
-    this.submitCat.emit(this.values);
+    this.submitAct.emit(this.values);
+    console.log(this.values);
     return false;
   }
 

@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import {CoreModule} from "./core/core.module";
 import {CategoriesModule} from "./categories/categories.module";
 import {RouterModule} from "@angular/router";
+import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
+import {CarouselModule} from "./carousel/carousel.module";
 
 
 
@@ -21,6 +23,8 @@ import {RouterModule} from "@angular/router";
     HttpModule,
     CoreModule,
     CategoriesModule,
+    CarouselModule,
+    Ng2Bs3ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
