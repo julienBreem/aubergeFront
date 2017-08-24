@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Slider} from "../slider.model";
 import {SliderService} from "../slider.service";
 import {AuthService} from "../../core/auth.service";
+import { Observable, Subscription } from 'rxjs/Rx';
+
+
 
 @Component({
   selector: 'app-slider-list',
   templateUrl: './slider-list.component.html',
   styleUrls: ['./slider-list.component.css']
 })
-export class SliderListComponent implements OnInit {
+export class SliderListComponent implements OnInit, OnDestroy {
 
-
+  timer;
+  sub: Subscription;
+  active = 0;
   sliders: Slider[];
   selectedSlider: Slider;
 
@@ -23,6 +28,36 @@ export class SliderListComponent implements OnInit {
 
   ngOnInit() {
     this.getSliders();
+    this.timer = Observable.timer(7000,7000);
+    this.sub = this.timer.subscribe(t => {
+      if(!this.admin()){
+        this.forWard();
+      }
+    });
+  }
+
+  ngOnDestroy(){
+      this.sub.unsubscribe();
+
+  }
+  gotoSlide(i){
+    if(this.sliders[i]){
+      this.active = i;
+    }
+  }
+
+  backWard(){
+    if(this.active == 0){
+      this.active = this.sliders.length - 1;
+    } else {
+      --this.active;
+    }
+  }
+  forWard(){
+    ++this.active;
+    if(!this.sliders[this.active]){
+      this.active = 0;
+    }
   }
 
   public admin():boolean{
@@ -49,10 +84,11 @@ export class SliderListComponent implements OnInit {
     this.selectSlider(slider);
   }
 
-  deleteCategory(category: Slider){
-    if(this.admin() && confirm('Êtes vous sûr de vouloir supprimer cette catégories? ( les activités seront aussi supprimées )') ){
+  deleteSlider(slider: Slider){
+    console.log(slider);
+    if(this.admin() && confirm('Êtes vous sûr de vouloir supprimer ce slider?') ){
       this.selectSlider(null);
-      this.sliderService.delete(category);
+      this.sliderService.delete(slider);
       this.getSliders();
     }
 

@@ -70,7 +70,6 @@ html body .aj-image-with-text-block .aj-image-with-text-block-button:hover {
   display: inline-block;
   padding: 2px 4px;
   margin-bottom: 0;
-  font-size: 20px !important;
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -134,7 +133,7 @@ html body .aj-image-with-text-block .aj-image-with-text-block-button:hover {
   position: absolute;
   margin-top: 5px;
   margin-left: 10px;
-  width: 100%;
+  width: 75%;
   z-index: 55;
 
 }

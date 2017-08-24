@@ -1,10 +1,32 @@
 .carousel-indicators {
     top: 20px;
+    bottom:auto;
 }
-.item{
-    text-align:left;
+#myCarousel{
+
     height:400px;
     max-height:400px;
+    overflow:hidden;
+}
+.item{
+    position:absolute;
+    width:100%;
+    display:block;
+    text-align:left;
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+    opacity: 0;
+    height:400px;
+    max-height:400px;
+    overflow:hidden;
+    z-index: -1;
+}
+.item.active{
+    opacity: 1;
+    z-index: 0;
+}
+.item > img{
+    width:100%;
 }
 .carousel-text {
     height:0;

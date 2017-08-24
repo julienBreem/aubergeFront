@@ -1,12 +1,50 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide">
   <!-- Indicators -->
+  <ol  class="carousel-indicators">
+    <li *ngFor="let slide of sliders; let i = index" [ngClass]="{'active': i==active}" (click)="gotoSlide(i)"></li>
+    <button *ngIf="admin()" (click)="new()" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div *ngFor="let slide of sliders; let i = index" class="carousel-inner">
+    <div class="item" [ngClass]="{'active': i==active}">
+      <img src="{{slide.image}}">
+      <div class="carousel-text">
+        <h1>
+          <span *ngIf="admin() && i==active">
+            <button (click)="selectSlider(slide)" type="button" class="btn btn-info btn-sm btn-edit"><span class="glyphicon glyphicon-edit"></span></button>
+            <button (click)="deleteSlider(slide)" type="button" class="btn btn-danger btn-sm btn-edit"><span class="glyphicon glyphicon-remove"></span></button>
+          </span>
+          {{slide.name}}
+        </h1>
+        <p>{{slide.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" (click)="backWard()">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" (click)="forWard()">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="displayForm" [ngClass]="{'visible' : selectedSlider}">
+  <app-slider-form *ngIf="admin() && selectedSlider" (submitSlide)="submitForm($event)" (close)="selectSlider(selectedSlider)" [values]="selectedSlider"></app-slider-form>
+</div>
+
+  <!--
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active" [ngStyle]="{'background-image' : 'url(http://iwallpapers2.free.fr/images/Paysages/Hiver/Glace_bleu_-_Fond_ecran_Paysage.jpg)'}">
       <div class="carousel-text">
@@ -30,7 +68,6 @@
     </div>
   </div>
 
-  <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
@@ -39,4 +76,4 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+-->
